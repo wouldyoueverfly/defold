@@ -166,7 +166,7 @@ let LisGamesSDKLib = {
     })
       .then(function (player) {
         const cplayerInfo = YGDefold.allocateJSON({
-          logged_in: player.getMode() !== 'lite',
+          logged_in: player.isAuthorized() !== 'lite',
           unique_id: player.getUniqueID() ?? "",
           name: player.getName() ?? "",
           photo: {
