@@ -491,10 +491,7 @@ let LisGamesSDKLib = {
   JS_GetLeaderboardDescription: function (handler, callback, cleaderboardName) {
     const leaderboardName = UTF8ToString(cleaderboardName);
     
-    window.ysdk.getLeaderboards()
-      .then(function (lb) {
-        return lb.getLeaderboardDescription(leaderboardName);
-      })
+    window.ysdk.leaderboards.getDescription(leaderboardName)
       .then(function (res) {
         const description = {
           app_id: res.appID,
