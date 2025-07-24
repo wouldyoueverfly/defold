@@ -491,7 +491,7 @@ let LisGamesSDKLib = {
   JS_GetLeaderboardDescription: function (handler, callback, cleaderboardName) {
     const leaderboardName = UTF8ToString(cleaderboardName);
     
-    window.ysdk.getLeaderboards()
+    window.ysdk.leaderboards()
       .then(function (lb) {
         return lb.getLeaderboardDescription(leaderboardName);
       })
@@ -518,7 +518,7 @@ let LisGamesSDKLib = {
     const score = parseFloat(UTF8ToString(cscore));
     const extraData = UTF8ToString(cextraData) ?? undefined;
 
-    window.ysdk.getLeaderboards()
+    window.ysdk.leaderboards()
       .then(function (lb) {
         return lb.setLeaderboardScore(leaderboardName, score, extraData);
       });
@@ -527,7 +527,7 @@ let LisGamesSDKLib = {
   JS_GetLeaderboardPlayerEntry: function (handler, callback, cleaderboardName) {
     const leaderboardName = UTF8ToString(cleaderboardName);
     
-    window.ysdk.getLeaderboards()
+    window.ysdk.leaderboards()
       .then(function (lb) {
         return lb.getLeaderboardPlayerEntry(leaderboardName);
       })
@@ -562,7 +562,7 @@ let LisGamesSDKLib = {
     const leaderboardName = UTF8ToString(cleaderboardName);
     const params = cparams ? JSON.parse(UTF8ToString(cparams)) : undefined;
 
-    window.ysdk.getLeaderboards()
+    window.ysdk.leaderboards()
       .then(function (lb) {
         console.log("3", lb,  {
           includeUser: params?.include_user ?? false,
